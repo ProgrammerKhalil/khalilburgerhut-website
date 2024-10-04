@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khalil Burger Hut</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        h1, h2, h3 {
+            color: #ffcc00;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #1c1c1c;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            transition: color 0.3s;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .btn-order {
+            background-color: #ffcc00;
+            padding: 10px 20px;
+            color: #1c1c1c;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-order:hover {
+            background-color: #ffdd33;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1596001499938-3531e244f763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #ffffff;
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            animation: fadeIn 1s;
+        }
+
+        .hero p {
+            animation: fadeIn 1.5s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Button Styles */
+        .hero-buttons .btn-primary, .hero-buttons .btn-secondary {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+
+        .btn-primary {
+            background-color: #ffcc00;
+            color: #1c1c1c;
+        }
+
+        .btn-secondary {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #ffcc00;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: scale(1.05);
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #1c1c1c;
+        }
+
+        .menu-items {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            background-color: #2b2b2b;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 250px;
+            transition: transform 0.3s;
+        }
+
+        .menu-item:hover {
+            transform: scale(1.05);
+        }
+
+        .menu-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .menu-item span {
+            display: block;
+            margin-top: 10px;
+            color: #ffcc00;
+        }
+
+        /* About Us Section */
+        .about {
+            padding: 60px 0;
+            background-color: #1c1c1c;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .about-text {
+            width: 50%;
+            padding: 20px;
+        }
+
+        .about-image {
+            width: 40%;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        /* Specials Section */
+        .specials {
+            padding: 60px 0;
+            background-color: #2b2b2b;
+            text-align: center;
+        }
+
+        .countdown {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #1c1c1c;
+        }
+
+        .testimonial {
+            margin: 10px;
+            background-color: #2b2b2b;
+            padding: 20px;
+            border-radius: 5px;
+            animation: slideIn 0.5s;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Location Section */
+        .location {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .location a {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            color: #1c1c1c;
+            border-radius: 5px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 0;
+            text-align: center;
+            background-color: #1c1c1c;
+        }
+
+        .newsletter form {
+            margin-top: 20px;
+        }
+
+        .newsletter input {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .newsletter button {
+            background-color: #ffcc00;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        /* Footer Section */
+        .footer {
+            padding: 20px 0;
+            text-align: center;
+            background-color: #1c1c1c;
+            color: #fff;
+        }
+
+        .footer .social-links a {
+            margin: 0 10px;
+        }
+
+        /* Mobile Menu Toggle */
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            height: 3px;
+            width: 25px;
+            background-color: #ffcc00;
+            margin-bottom: 5px;
+            border-radius: 5px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                background-color: #1c1c1c;
+                width: 200px;
+                padding: 20px;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-text, .about-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Khalil Burger Hut</h1>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <a href="#order" class="btn-order">Order Now</a>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span></span><span></span><span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>The Best Burgers in Town!</h2>
+            <p>Handcrafted with love and fresh ingredients.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn-primary">View Menu</a>
+                <a href="#order" class="btn-secondary">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1601935097465-4f00b22d3a3c" alt="Burger">
+                <h3>Cheeseburger</h3>
+                <span>$5.99</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1601935101188-e2b4a5d8f2c6" alt="Burger">
+                <h3>Bacon Burger</h3>
+                <span>$6.99</span>
+            </div>
+            <div class="menu-item">
+                <img src="https://images.unsplash.com/photo-1613564378883-3e2829bc0f34" alt="Burger">
+                <h3>Veggie Burger</h3>
+                <span>$4.99</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>About Us</h2>
+                <p>At Khalil Burger Hut, we are dedicated to serving the best burgers in town. Our ingredients are sourced locally, and each burger is crafted with care and passion.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1582016499084-8c47cbb9a56b" alt="About Us">
+            </div>
+        </div>
+    </section>
+
+    <!-- Specials Section -->
+    <section id="specials" class="specials">
+        <h2>Today's Specials</h2>
+        <p>Don't miss our special offer!</p>
+        <div class="countdown">Limited Time Offer!</div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <h2>Customer Testimonials</h2>
+        <div class="testimonial">"Best burgers I've ever had!" - Sarah</div>
+        <div class="testimonial">"The service was amazing!" - John</div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="locations" class="location">
+        <h2>Our Locations</h2>
+        <p>Find us at a location near you!</p>
+        <a href="#contact">Get Directions</a>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section id="newsletter" class="newsletter">
+        <h2>Subscribe to our Newsletter</h2>
+        <form>
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Khalil Burger Hut. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const navToggle = document.getElementById('nav-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
